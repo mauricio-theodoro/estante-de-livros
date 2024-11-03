@@ -12,7 +12,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
-        <NavBar onSearch={setSearchQuery} />
+        <NavBar onSearch={(query) => setSearchQuery(query)} />
         <Routes>
           <Route path="/" element={<BookShelf />} />
           <Route path="/search" element={<BookSearch searchQuery={searchQuery} />} />
