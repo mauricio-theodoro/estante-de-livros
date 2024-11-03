@@ -4,7 +4,7 @@ import { fetchBooks } from '../services/bookService'; // Importa fetchBooks corr
 import BookItem from './BookItem';
 import '../styles/BookShelf.css';
 
-const BookShelf = () => {
+const BookShelf = ({ onFavoriteToggle, favoriteBooks }) => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -32,12 +32,30 @@ const BookShelf = () => {
 
   return (
     <div className="book-shelf">
+      <h2>Favoritos</h2>
+      {favoriteBooks.length === 0 && <p>Nenhum livro favoritado ainda.</p>}
+      <div className="favorites-grid">
+        {favoriteBooks.map((book) => (
+          <BookItem
+            key={book.id}
+            book={book}
+            onFavoriteToggle={onFavoriteToggle}
+            isFavorite={true}
+          />
+        ))}
+      </div>
+
       <h2>Estante de Livros</h2>
       {loading && <p>Carregando...</p>}
       {error && <p className="error-message">{error}</p>}
       <div className="book-list">
         {books.map((book) => (
-          <BookItem key={book.id} book={book} />
+          <BookItem
+            key={book.id}
+            book={book}
+            onFavoriteToggle={onFavoriteToggle}
+            isFavorite={favoriteBooks.some((favBook) => favBook.id === book.id)}
+          />
         ))}
       </div>
     </div>

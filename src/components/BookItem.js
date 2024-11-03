@@ -1,8 +1,9 @@
+// BookItem.js
 import React, { useState } from 'react';
 import '../styles/BookItem.css';
 
-const BookItem = ({ book }) => {
-  const [showDescription, setShowDescription] = useState(false); // Estado para controlar a exibição da descrição
+const BookItem = ({ book, onFavoriteToggle, isFavorite }) => {
+  const [showDescription, setShowDescription] = useState(false); // Estado para exibir descrição
 
   return (
     <div className="book-item">
@@ -32,6 +33,11 @@ const BookItem = ({ book }) => {
       <a href={book.infoLink} target="_blank" rel="noopener noreferrer" className="more-info">
         More Info
       </a>
+
+      {/* Botão de Favorito */}
+      <button onClick={() => onFavoriteToggle(book)} className="favorite-button">
+        {isFavorite ? '★ Favorito' : '☆ Favoritar'}
+      </button>
     </div>
   );
 };
