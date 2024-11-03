@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API_URL = 'https://api-books-dot-api-samples-423102.uc.r.appspot.com/api'; // URL da API
-const AUTH_TOKEN = '03112024'; // Sua chave de autorização
+const AUTH_TOKEN = 'Bearer 03112024'; // Sua chave de autorização com o prefixo Bearer
 
 // Configuração padrão do Axios
 const apiClient = axios.create({
