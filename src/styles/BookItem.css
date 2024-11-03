@@ -1,3 +1,6 @@
+/* BookItem.css */
+
+/* Container principal do item de livro */
 .book-item {
     background: white; /* Fundo branco para destacar o card */
     border-radius: 15px; /* Bordas arredondadas */
@@ -7,49 +10,68 @@
     text-align: left; /* Texto alinhado à esquerda */
     transition: transform 0.2s; /* Transição suave para o efeito hover */
     position: relative; /* Para o posicionamento do botão */
-  }
-  
-  .book-item:hover {
-    transform: scale(1.05); /* Aumenta o card quando hover */
-  }
-  
-  .book-image {
+}
+
+.book-item:hover {
+    transform: scale(1.05); /* Aumenta o card ao passar o mouse */
+}
+
+/* Estilização da imagem do livro */
+.book-image {
     width: 100%; /* Imagem ocupa toda a largura do card */
     height: auto; /* Mantém a proporção da imagem */
-    border-radius: 10px; /* Bordas arredondadas na imagem */
-  }
-  
-  .description-button {
-    background-color: var(--primary-color); /* Cor do botão */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Botão para exibir/ocultar descrição */
+.description-button {
+    background-color: #007bff; /* Cor primária do botão */
     color: white; /* Texto branco */
     border: none; /* Remove borda padrão */
     padding: 10px; /* Espaçamento interno */
-    border-radius: 5px; /* Bordas arredondadas do botão */
-    cursor: pointer; /* Indica que é clicável */
-    margin-top: 10px; /* Espaçamento acima do botão */
-  }
-  
-  .description-button:hover {
-    background-color: var(--accent-color); /* Muda a cor do botão ao passar o mouse */
-  }
-  
-  .description {
-    margin-top: 10px; /* Espaçamento acima da descrição */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Indicador de clique */
+    margin-top: 10px; /* Espaço acima do botão */
+}
+
+.description-button:hover {
+    background-color: #0056b3; /* Muda a cor ao passar o mouse */
+}
+
+/* Container da descrição, exibido ao clicar no botão */
+.description {
+    margin-top: 10px; /* Espaço acima da descrição */
     background: #f9f9f9; /* Fundo cinza claro */
     padding: 15px; /* Espaçamento interno */
     border-radius: 8px; /* Bordas arredondadas */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra leve */
-  }
-  
-  .more-info {
-    display: inline-block; /* Para o link de mais informações */
-    margin-top: 15px; /* Espaçamento acima do link */
-    color: var(--primary-color); /* Cor do link */
+}
+
+/* Link para mais informações */
+.more-info {
+    display: inline-block; /* Formatação inline */
+    margin-top: 15px; /* Espaço acima do link */
+    color: #007bff; /* Cor do link */
     text-decoration: none; /* Remove sublinhado */
-    font-weight: bold; /* Deixa o texto em negrito */
-  }
-  
-  .more-info:hover {
-    text-decoration: underline; /* Sublinha ao passar o mouse */
-  }
-  
+    font-weight: bold; /* Negrito */
+}
+
+.more-info:hover {
+    text-decoration: underline; /* Adiciona sublinhado no hover */
+}
+
+/* Botão de favorito */
+.favorite-button {
+    background: none; /* Fundo transparente */
+    border: none; /* Remove borda */
+    color: #f39c12; /* Cor dourada */
+    font-size: 18px; /* Aumenta o tamanho do ícone */
+    cursor: pointer; /* Indicador de clique */
+    position: absolute; /* Posiciona sobre o card */
+    top: 10px;
+    right: 10px;
+}
+
+.favorite-button:hover {
+    color: #e67e22; /* Muda para laranja ao passar o mouse */
+}

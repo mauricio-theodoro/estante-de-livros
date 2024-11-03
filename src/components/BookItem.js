@@ -1,6 +1,6 @@
 // BookItem.js
 import React, { useState } from 'react';
-import '../styles/BookItem.css';
+import '../styles/BookItem.css'; // Importa o CSS separado
 
 const BookItem = ({ book, onFavoriteToggle, isFavorite }) => {
   const [showDescription, setShowDescription] = useState(false); // Estado para exibir descrição
@@ -13,10 +13,10 @@ const BookItem = ({ book, onFavoriteToggle, isFavorite }) => {
       <p>Authors: {book.authors.join(', ')}</p>
       <p>Publisher: {book.publisher}</p>
       <p>Published Date: {book.publishedDate}</p>
-      
+
       {/* Botão para mostrar/esconder a descrição */}
-      <button 
-        className="description-button" 
+      <button
+        className="description-button"
         onClick={() => setShowDescription(!showDescription)}
       >
         {showDescription ? 'Hide Description' : 'Show Description'}
@@ -28,7 +28,7 @@ const BookItem = ({ book, onFavoriteToggle, isFavorite }) => {
           <p>{book.description}</p>
         </div>
       )}
-      
+
       <p>Average Rating: {book.averageRating}</p>
       <a href={book.infoLink} target="_blank" rel="noopener noreferrer" className="more-info">
         More Info
