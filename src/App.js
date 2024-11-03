@@ -46,9 +46,10 @@ const App = () => {
     }
 
     // Filtra os livros com base na consulta de pesquisa
-    const filtered = books.filter((book) =>
-      book.title.toLowerCase().includes(query.toLowerCase()) // Ignora case na busca
-    );
+    const filtered = books.filter((book) => {
+      return book.title.toLowerCase().includes(query.toLowerCase()) || 
+             book.authors.some(author => author.toLowerCase().includes(query.toLowerCase())); // Pesquisa por autores
+    });
     setFilteredBooks(filtered); // Atualiza o estado com os livros filtrados
   };
 

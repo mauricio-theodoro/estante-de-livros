@@ -15,7 +15,7 @@ const BookItem = ({ book, onFavoriteToggle, isFavorite, onShelfChange }) => {
       <img src={book.imageLinks?.thumbnail} alt={book.title} className="book-image" />
       <h3>{book.title}</h3>
       <p>{book.subtitle}</p>
-      <p>Authors: {book.authors.join(', ')}</p>
+      <p>Authors: {book.authors.length > 0 ? book.authors.join(', ') : 'Unknown Author'}</p>
       <p>Publisher: {book.publisher}</p>
       <p>Published Date: {book.publishedDate}</p>
 
@@ -30,17 +30,17 @@ const BookItem = ({ book, onFavoriteToggle, isFavorite, onShelfChange }) => {
       {/* Exibe a descrição apenas se showDescription for verdadeiro */}
       {showDescription && (
         <div className="description">
-          <p>{book.description}</p>
+          <p>{book.description || 'No description available.'}</p>
         </div>
       )}
 
-      <p>Average Rating: {book.averageRating}</p>
+      <p>Average Rating: {book.averageRating || 'No rating available.'}</p>
       <a href={book.infoLink} target="_blank" rel="noopener noreferrer" className="more-info">
         More Info
       </a>
 
       {/* Seletor para mudar a estante do livro */}
-      <select value={book.shelf} onChange={handleShelfChange}>
+      <select value={book.shelf || 'none'} onChange={handleShelfChange}>
         <option value="none" disabled>Mover para...</option>
         <option value="currentlyReading">Estou Lendo</option>
         <option value="wantToRead">Quero Ler</option>
