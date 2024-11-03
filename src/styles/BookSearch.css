@@ -1,23 +1,65 @@
-/* Estilo para a estante de livros */
-.book-shelf {
-    display: grid; /* Usando grid para layout flexível */
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-    gap: 20px; /* Espaço entre os itens */
+/* BookSearch.css */
+
+/* Container principal do componente de busca */
+.book-search-container {
+    max-width: 800px; /* Define a largura máxima do container */
+    margin: auto; /* Centraliza horizontalmente */
     padding: 20px; /* Espaçamento interno */
-    background-color: var(--secondary-color); /* Cor de fundo da estante */
-    border-radius: 8px; /* Bordas arredondadas */
+    background-color: #f8f9fa; /* Cor de fundo do container */
+    border-radius: 8px; /* Bordas arredondadas para estilo */
 }
 
-/* Estilo para tela pequena: 2 colunas */
+/* Controles de filtro e ordenação */
+.filter-sort-controls {
+    display: flex; /* Exibe os elementos lado a lado */
+    gap: 10px; /* Espaço entre o filtro e a ordenação */
+    margin-bottom: 20px; /* Espaço abaixo dos controles */
+    justify-content: space-between; /* Distribui os elementos */
+}
+
+/* Dropdown de filtro e ordenação */
+.filter-dropdown, .sort-dropdown {
+    padding: 8px; /* Espaçamento interno para facilitar o clique */
+    font-size: 1em; /* Tamanho da fonte dos dropdowns */
+    border: 1px solid #ccc; /* Borda para definição visual */
+    border-radius: 4px; /* Borda arredondada para suavidade */
+    cursor: pointer; /* Aponta o cursor ao passar */
+}
+
+/* Indicador de mensagem de erro */
+.error-message {
+    color: #dc3545; /* Cor vermelha para destaque de erro */
+    font-weight: bold; /* Negrito para destacar */
+    margin-top: 20px; /* Espaçamento acima da mensagem */
+}
+
+/* Grid de resultados da busca */
+.search-results {
+    display: grid; /* Define layout em grid para os resultados */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Layout responsivo */
+    gap: 15px; /* Espaço entre os itens */
+}
+
+/* Responsividade para estantes de livros */
+.book-shelf {
+    display: grid; /* Usa grid para layout flexível */
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas por padrão */
+    gap: 20px; /* Espaço entre itens */
+    padding: 20px; /* Espaçamento interno */
+    background-color: var(--secondary-color); /* Cor de fundo da estante */
+    border-radius: 8px; /* Bordas arredondadas para estilo */
+}
+
+/* Estilo responsivo para telas pequenas: 2 colunas */
 @media (max-width: 768px) {
     .book-shelf {
-        grid-template-columns: repeat(2, 1fr); /* 2 colunas em telas menores */
+        grid-template-columns: repeat(2, 1fr); /* Ajusta para 2 colunas */
     }
 }
 
-/* Estilo para tela muito pequena: 1 coluna */
+/* Estilo responsivo para telas muito pequenas: 1 coluna */
 @media (max-width: 480px) {
     .book-shelf {
-        grid-template-columns: 1fr; /* 1 coluna em telas muito pequenas */
+        grid-template-columns: 1fr; /* Ajusta para 1 coluna */
     }
 }

@@ -1,0 +1,49 @@
+/* Favorites.css */
+
+/* Estiliza o contêiner principal da página de favoritos */
+.favorites-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  /* Estiliza a mensagem quando não há livros favoritos */
+  .empty-message {
+    text-align: center;
+    font-size: 1.5em;
+    color: #555;
+    margin-top: 20px;
+  }
+  
+  /* Estiliza os itens da lista de favoritos */
+  .favorites-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  /* Estiliza cada item da lista de favoritos */
+  .favorite-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+  }
+  
+  /* Estiliza o botão para remover dos favoritos */
+  .remove-favorite {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+  }
+  
+  .remove-favorite:hover {
+    background-color: #ff1a1a; /* Efeito ao passar o mouse */
+  }
+  
