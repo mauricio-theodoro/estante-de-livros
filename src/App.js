@@ -1,18 +1,21 @@
-import React from 'react';
+// App.js
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import BookShelf from './components/BookShelf';
 import BookSearch from './components/BookSearch';
-import NavBar from './components/NavBar'; // Certifique-se de que o nome está correto
+import NavBar from './components/NavBar';
 import './styles/App.css';
 
 const App = () => {
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <Router>
       <div className="App">
-        <NavBar /> {/* Usar o nome correto aqui */}
+        <NavBar onSearch={setSearchQuery} />
         <Routes>
           <Route path="/" element={<BookShelf />} />
-          <Route path="/search" element={<BookSearch />} />
+          <Route path="/search" element={<BookSearch searchQuery={searchQuery} />} />
         </Routes>
       </div>
     </Router>

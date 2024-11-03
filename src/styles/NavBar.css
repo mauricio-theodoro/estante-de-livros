@@ -1,3 +1,4 @@
+/* NavBar.css */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -9,20 +10,39 @@
   
   .navbar-title {
     font-size: 24px;
+    color: var(--primary-color);
   }
   
   .navbar-links {
-    list-style-type: none;
     display: flex;
+    align-items: center;
     gap: 20px;
   }
   
   .navbar-links a {
     color: #fff;
     text-decoration: none;
+    font-size: 18px;
   }
   
   .navbar-links a:hover {
     text-decoration: underline;
+  }
+  
+  /* Estilo para o campo de pesquisa */
+  .navbar-search-input {
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    margin-left: 20px;
+  }
+  
+  .navbar-search-input:hover,
+  .navbar-search-input:focus {
+    border-color: var(--primary-color); /* Realça o campo ao passar o mouse ou ao focar */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    outline: none;
   }
   

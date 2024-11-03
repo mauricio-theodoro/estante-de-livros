@@ -1,15 +1,29 @@
-import React from 'react';
+// Navbar.js
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/NavBar.css'; // Estilo da Navbar
+import '../styles/NavBar.css';
 
-const Navbar = () => {
+const Navbar = ({ onSearch }) => {
+  const [query, setQuery] = useState('');
+
+  const handleSearchChange = (e) => {
+    setQuery(e.target.value);
+    onSearch(e.target.value);
+  };
+
   return (
     <nav className="navbar">
       <h1 className="navbar-title">Estante de Livros</h1>
-      <ul className="navbar-links">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/search">Search</Link></li>
-      </ul>
+      <div className="navbar-links">
+        <Link to="/">Home</Link>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={query}
+          onChange={handleSearchChange}
+          className="navbar-search-input"
+        />
+      </div>
     </nav>
   );
 };
