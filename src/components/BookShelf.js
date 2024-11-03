@@ -1,60 +1,66 @@
-// BookShelf.js
-import React, { useEffect, useState } from 'react';
-import { fetchBooks } from '../services/bookService'; // Importa fetchBooks corretamente
-import BookItem from './BookItem';
-import '../styles/BookShelf.css';
+import React from 'react'; // Importa React
+import BookItem from './BookItem'; // Importa o componente de item de livro
+import '../styles/BookShelf.css'; // Importa o CSS da estante de livros
 
-const BookShelf = ({ onFavoriteToggle, favoriteBooks }) => {
-  const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  // Função para buscar todos os livros
-  const loadBooks = async () => {
-    setLoading(true);
-    setError(''); // Limpa erros anteriores
-
-    try {
-      const allBooks = await fetchBooks(); // Usa fetchBooks para obter todos os livros
-      setBooks(allBooks);
-    } catch (error) {
-      setError('Erro ao carregar livros. Tente novamente.');
-      console.error('Erro ao carregar livros:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  // Busca os livros quando o componente é montado
-  useEffect(() => {
-    loadBooks();
-  }, []);
+// Componente BookShelf que exibe livros favoritos e livros organizados por estante
+const BookShelf = ({ onFavoriteToggle, favoriteBooks, books, onShelfChange }) => {
+  // Filtra os livros por estante
+  const currentlyReading = books.filter(book => book.shelf === "currentlyReading");
+  const wantToRead = books.filter(book => book.shelf === "wantToRead");
+  const read = books.filter(book => book.shelf === "read");
 
   return (
     <div className="book-shelf">
       <h2>Favoritos</h2>
-      {favoriteBooks.length === 0 && <p>Nenhum livro favoritado ainda.</p>}
+      {favoriteBooks.length === 0 && <p>Nenhum livro favoritado ainda.</p>} {/* Mensagem quando não há favoritos */}
       <div className="favorites-grid">
         {favoriteBooks.map((book) => (
           <BookItem
             key={book.id}
             book={book}
             onFavoriteToggle={onFavoriteToggle}
-            isFavorite={true}
+            isFavorite={true} // Indica que este livro é um favorito
+            onShelfChange={onShelfChange} // Passa a função de mudança de estante
           />
         ))}
       </div>
 
       <h2>Estante de Livros</h2>
-      {loading && <p>Carregando...</p>}
-      {error && <p className="error-message">{error}</p>}
       <div className="book-list">
-        {books.map((book) => (
+        {/* Seções para os livros de acordo com a estante */}
+        <h3>Estou Lendo</h3>
+        {currentlyReading.length === 0 && <p>Nenhum livro na estante "Estou Lendo".</p>}
+        {currentlyReading.map((book) => (
+          <BookItem
+            key={book.id}
+            book={book}
+            onFavoriteToggle={onFavoriteToggle}
+            isFavorite={favoriteBooks.some((favBook) => favBook.id === book.id)} // Verifica se o livro é favorito
+            onShelfChange={onShelfChange} // Passa a função de mudança de estante
+          />
+        ))}
+
+        <h3>Quero Ler</h3>
+        {wantToRead.length === 0 && <p>Nenhum livro na estante "Quero Ler".</p>}
+        {wantToRead.map((book) => (
           <BookItem
             key={book.id}
             book={book}
             onFavoriteToggle={onFavoriteToggle}
             isFavorite={favoriteBooks.some((favBook) => favBook.id === book.id)}
+            onShelfChange={onShelfChange} // Passa a função de mudança de estante
+          />
+        ))}
+
+        <h3>Já Lido</h3>
+        {read.length === 0 && <p>Nenhum livro na estante "Já Lido".</p>}
+        {read.map((book) => (
+          <BookItem
+            key={book.id}
+            book={book}
+            onFavoriteToggle={onFavoriteToggle}
+            isFavorite={favoriteBooks.some((favBook) => favBook.id === book.id)}
+            onShelfChange={onShelfChange} // Passa a função de mudança de estante
           />
         ))}
       </div>
@@ -62,4 +68,4 @@ const BookShelf = ({ onFavoriteToggle, favoriteBooks }) => {
   );
 };
 
-export default BookShelf;
+export default BookShelf; // Exporta o componente

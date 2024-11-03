@@ -1,65 +1,52 @@
 /* BookSearch.css */
-
-/* Container principal do componente de busca */
 .book-search-container {
-    max-width: 800px; /* Define a largura máxima do container */
-    margin: auto; /* Centraliza horizontalmente */
-    padding: 20px; /* Espaçamento interno */
-    background-color: #f8f9fa; /* Cor de fundo do container */
-    border-radius: 8px; /* Bordas arredondadas para estilo */
-}
-
-/* Controles de filtro e ordenação */
-.filter-sort-controls {
-    display: flex; /* Exibe os elementos lado a lado */
-    gap: 10px; /* Espaço entre o filtro e a ordenação */
-    margin-bottom: 20px; /* Espaço abaixo dos controles */
-    justify-content: space-between; /* Distribui os elementos */
-}
-
-/* Dropdown de filtro e ordenação */
-.filter-dropdown, .sort-dropdown {
-    padding: 8px; /* Espaçamento interno para facilitar o clique */
-    font-size: 1em; /* Tamanho da fonte dos dropdowns */
-    border: 1px solid #ccc; /* Borda para definição visual */
-    border-radius: 4px; /* Borda arredondada para suavidade */
-    cursor: pointer; /* Aponta o cursor ao passar */
-}
-
-/* Indicador de mensagem de erro */
-.error-message {
-    color: #dc3545; /* Cor vermelha para destaque de erro */
-    font-weight: bold; /* Negrito para destacar */
-    margin-top: 20px; /* Espaçamento acima da mensagem */
-}
-
-/* Grid de resultados da busca */
-.search-results {
-    display: grid; /* Define layout em grid para os resultados */
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Layout responsivo */
-    gap: 15px; /* Espaço entre os itens */
-}
-
-/* Responsividade para estantes de livros */
-.book-shelf {
-    display: grid; /* Usa grid para layout flexível */
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas por padrão */
-    gap: 20px; /* Espaço entre itens */
-    padding: 20px; /* Espaçamento interno */
-    background-color: var(--secondary-color); /* Cor de fundo da estante */
-    border-radius: 8px; /* Bordas arredondadas para estilo */
-}
-
-/* Estilo responsivo para telas pequenas: 2 colunas */
-@media (max-width: 768px) {
-    .book-shelf {
-        grid-template-columns: repeat(2, 1fr); /* Ajusta para 2 colunas */
-    }
-}
-
-/* Estilo responsivo para telas muito pequenas: 1 coluna */
-@media (max-width: 480px) {
-    .book-shelf {
-        grid-template-columns: 1fr; /* Ajusta para 1 coluna */
-    }
-}
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+  
+  .filter-sort-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: space-between;
+  }
+  
+  .filter-dropdown, .sort-dropdown {
+    padding: 8px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  .search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+  }
+  
+  /* Estilo da barra de pesquisa */
+  .navbar-search-input {
+    padding: 8px 12px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-search-input:hover,
+  .navbar-search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+    outline: none;
+  }
+  

@@ -1,36 +1,60 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* MainPage.css */
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  line-height: 1.6;
-}
-
-/* Estrutura principal */
-.App {
-  max-width: 1200px;
-  margin: 0 auto;
+.main-page {
   padding: 20px;
+  background-color: var(--secondary-color);
+}
+
+.page-title {
   text-align: center;
-}
-
-/* Paleta de cores */
-:root {
-  --primary-color: #1f7a8c;   /* Azul para títulos e botões */
-  --secondary-color: #bfdbf7; /* Azul claro para background */
-  --text-color: #333;         /* Cor padrão do texto */
-  --light-text-color: #555;   /* Cor mais clara para subtítulos */
-  --accent-color: #f28d35;    /* Cor de destaque */
-}
-
-/* Títulos */
-h1, h2, h3 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
   color: var(--primary-color);
-  margin-bottom: 10px;
 }
+
+.book-shelves {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px; /* Espaçamento entre estantes */
+}
+
+/* Estilo das estantes */
+.shelf {
+  flex: 1;
+  min-width: 250px; /* Largura mínima para cada estante */
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.shelf h2 {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+}
+
+/* BookShelf.css */
+.book-shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 15px; /* Espaçamento entre os livros */
+  padding: 10px; /* Espaçamento interno */
+}
+
+/* Estilo para os livros */
+.book-item {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition: transform 0.2s;
+}
+
+.book-item:hover {
+  transform: scale(1.02);
+}
+
+/* Outros estilos mantidos do seu CSS original */
+

@@ -15,6 +15,7 @@ const BookSearch = ({ searchQuery }) => {
   // Função que busca livros sempre que o query ou filtros mudam
   useEffect(() => {
     const fetchBooks = async () => {
+      // Valida se o campo de busca está vazio
       if (!searchQuery.trim()) {
         setResults([]); // Limpa os resultados se a busca estiver vazia
         setError('Digite algo para buscar.'); // Define uma mensagem de erro inicial
@@ -26,13 +27,15 @@ const BookSearch = ({ searchQuery }) => {
 
       try {
         const books = await searchBooks(searchQuery); // Faz a chamada à API de busca
+        // Verifica se não houve livros encontrados
         if (books.length === 0) {
           setError('Nenhum livro encontrado.'); // Define mensagem de erro se não houver resultados
         } else {
           setResults(applyFiltersAndSort(books)); // Aplica os filtros e ordenação
         }
       } catch (error) {
-        setError('Erro ao buscar livros. Tente novamente.'); // Define mensagem de erro em caso de falha
+        // Define mensagem de erro em caso de falha
+        setError(`Erro ao buscar livros: ${error.message}`); 
         console.error('Erro ao buscar livros:', error); // Loga o erro no console para depuração
       } finally {
         setLoading(false); // Finaliza o estado de carregamento
@@ -44,12 +47,12 @@ const BookSearch = ({ searchQuery }) => {
 
   // Função para aplicar filtros e ordenar os resultados
   const applyFiltersAndSort = (books) => {
-    let filteredBooks = [...books];
-    
+    let filteredBooks = [...books]; // Cria uma cópia do array de livros
+
     // Aplica o filtro de categoria se houver
     if (filter) {
       filteredBooks = filteredBooks.filter(book => 
-        book.categories && book.categories.includes(filter)
+        book.categories && book.categories.includes(filter) // Filtra livros que incluem a categoria selecionada
       );
     }
     
@@ -58,7 +61,7 @@ const BookSearch = ({ searchQuery }) => {
       filteredBooks.sort((a, b) => {
         if (sortOrder === 'date') return new Date(b.publishedDate) - new Date(a.publishedDate); // Ordena por data
         if (sortOrder === 'title') return a.title.localeCompare(b.title); // Ordena por título
-        return 0;
+        return 0; // Retorna 0 se nenhuma condição de ordenação for atendida
       });
     }
     return filteredBooks; // Retorna a lista filtrada e ordenada

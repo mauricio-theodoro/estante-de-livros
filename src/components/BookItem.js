@@ -1,9 +1,14 @@
-// BookItem.js
-import React, { useState } from 'react';
+import React, { useState } from 'react'; // Importa React e hook useState
 import '../styles/BookItem.css'; // Importa o CSS separado
 
-const BookItem = ({ book, onFavoriteToggle, isFavorite }) => {
+const BookItem = ({ book, onFavoriteToggle, isFavorite, onShelfChange }) => {
   const [showDescription, setShowDescription] = useState(false); // Estado para exibir descrição
+
+  // Função para lidar com a mudança de estante
+  const handleShelfChange = (event) => {
+    // Chama a função de mudança de estante passando o livro e a nova estante
+    onShelfChange(book, event.target.value);
+  };
 
   return (
     <div className="book-item">
@@ -17,7 +22,7 @@ const BookItem = ({ book, onFavoriteToggle, isFavorite }) => {
       {/* Botão para mostrar/esconder a descrição */}
       <button
         className="description-button"
-        onClick={() => setShowDescription(!showDescription)}
+        onClick={() => setShowDescription(!showDescription)} // Alterna a descrição
       >
         {showDescription ? 'Hide Description' : 'Show Description'}
       </button>
@@ -34,6 +39,14 @@ const BookItem = ({ book, onFavoriteToggle, isFavorite }) => {
         More Info
       </a>
 
+      {/* Seletor para mudar a estante do livro */}
+      <select value={book.shelf} onChange={handleShelfChange}>
+        <option value="none" disabled>Mover para...</option>
+        <option value="currentlyReading">Estou Lendo</option>
+        <option value="wantToRead">Quero Ler</option>
+        <option value="read">Já Lido</option>
+      </select>
+
       {/* Botão de Favorito */}
       <button onClick={() => onFavoriteToggle(book)} className="favorite-button">
         {isFavorite ? '★ Favorito' : '☆ Favoritar'}
@@ -42,4 +55,4 @@ const BookItem = ({ book, onFavoriteToggle, isFavorite }) => {
   );
 };
 
-export default BookItem;
+export default BookItem; // Exporta o componente
