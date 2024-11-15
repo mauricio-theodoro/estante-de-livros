@@ -1,13 +1,63 @@
-body {
+/* Reseta o estilo de margens e paddings para garantir consistência entre navegadores */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box; /* Inclui bordas e padding nas dimensões dos elementos */
 }
 
+/* Estilos gerais para o corpo da página */
+body {
+  margin: 0; /* Remove margem padrão do body */
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif; /* Definindo uma fonte moderna e de fácil leitura */
+  
+  /* Propriedades para suavizar as fontes */
+  -webkit-font-smoothing: antialiased; /* Melhora a renderização das fontes em WebKit */
+  -moz-osx-font-smoothing: grayscale; /* Melhora a renderização das fontes no Firefox para Mac */
+  
+  /* Define o background como transparente, mas você pode ajustar para sua necessidade */
+  background-color: #f4f4f4; 
+}
+
+/* Estilos para elementos de código */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; /* Usa uma fonte monoespaçada adequada para código */
+  background-color: #f5f5f5; /* Um fundo suave para destacar o código */
+  padding: 2px 5px; /* Padding pequeno para melhorar a legibilidade */
+  border-radius: 4px; /* Bordas arredondadas para um visual mais moderno */
+  font-size: 1rem; /* Define o tamanho da fonte */
+  color: #d63384; /* Cor de texto recomendada para destacar o código */
+}
+
+/* Estilo global de links */
+a {
+  text-decoration: none; /* Remove o sublinhado padrão */
+  color: inherit; /* Herda a cor do elemento pai */
+}
+
+a:hover {
+  text-decoration: underline; /* Adiciona o sublinhado no hover para interação */
+}
+
+/* Estilos para elementos de formulário */
+input, button, select, textarea {
+  font-family: inherit; /* Herda a fonte do body para consistência */
+  font-size: 1rem; /* Define um tamanho de fonte consistente */
+  border-radius: 4px; /* Bordas arredondadas */
+  padding: 8px 12px; /* Padding para dar espaço adequado ao conteúdo */
+}
+
+/* Estilos para o header da página */
+header {
+  background-color: #007bff; /* Cor de fundo do header */
+  color: white; /* Cor do texto */
+  padding: 15px 30px; /* Espaçamento interno para uma boa estrutura */
+  text-align: center; /* Centraliza o texto do header */
+}
+
+/* Estilo para o container principal da página */
+.container {
+  max-width: 1200px; /* Largura máxima da página */
+  margin: 0 auto; /* Centraliza o container */
+  padding: 20px; /* Padding para espaçamento interno */
 }

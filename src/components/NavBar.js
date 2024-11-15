@@ -1,4 +1,4 @@
-// Navbar.js
+// NavBar.js
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/NavBar.css';
@@ -14,7 +14,11 @@ const Navbar = ({ onSearch }) => {
   // Lida com o envio da pesquisa ao clicar no botão
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    onSearch(query); // Passa o valor da pesquisa para o App
+    if (query.trim()) { // Valida se a consulta não está vazia
+      onSearch(query); // Passa o valor da pesquisa para o App
+    } else {
+      alert('Por favor, digite algo para buscar.'); // Mensagem de feedback se a busca estiver vazia
+    }
   };
 
   return (
@@ -22,7 +26,7 @@ const Navbar = ({ onSearch }) => {
       <h1 className="navbar-title">Estante de Livros</h1>
       <div className="navbar-links">
         <Link to="/">Home</Link>
-        <Link to="/search">Search</Link>
+
       </div>
       <form onSubmit={handleSearchSubmit} className="navbar-search-form">
         <input

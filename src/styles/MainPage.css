@@ -1,0 +1,55 @@
+/* MainPage.css */
+
+/* Estilo geral da página */
+.main-page {
+    padding: 20px;
+    background-color: var(--secondary-color);
+  }
+  
+  /* Título da página */
+  .page-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+  }
+  
+  /* Container que organiza as estantes */
+  .book-shelves {
+    display: flex;
+    flex-direction: column; /* Garante que os favoritos fiquem no topo */
+    gap: 30px; /* Espaçamento entre as estantes */
+  }
+  
+  /* Estilo das estantes (incluindo a dos favoritos) */
+  .shelf {
+    flex: 1;
+    min-width: 250px; /* Largura mínima para cada estante */
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Cabeçalho de cada estante */
+  .shelf h2 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo para a estante de favoritos que ficará no topo */
+  .favorite-shelf {
+    background-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Organizando os livros dentro das estantes */
+  .book-shelf {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 livros por linha */
+    gap: 15px; /* Espaçamento entre os livros */
+    padding: 10px; /* Espaçamento interno */
+  }
+  
